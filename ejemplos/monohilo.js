@@ -1,4 +1,4 @@
-console.log("Monohilo");
+console.log("monohilo");
 let i=0
 setInterval(function(){
     console.log("Active...")
@@ -6,4 +6,4 @@ setInterval(function(){
         i = i + x
     }
     i++
-},1000);
+}, 1000)

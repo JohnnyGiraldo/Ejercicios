@@ -1,4 +1,3 @@
-let saludo = process.env.NOMBRE || 'NN'
-//console.log('Welcome ${saludo}')
-let city = process.env.CITY || 'No where'
-console.log('welcome ${city}')
+let saludo = process.env.NOMBRE || 'VSencillo'
+let city = process.env.CITY || 'Manizales'
+console.log(`welcome ${saludo} you are from ${city}`)

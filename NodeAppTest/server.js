@@ -1,24 +1,20 @@
-const express = require("express"); // Requerir Framework
-const app = express(); // Crear instancia de express
-const morgan = require('morgan');
+const express = require("express"); //requerir framework
+const app = express(); //crear instancia de express
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
-// Configuraciones
-app.set('port', 4000);
-
-// Middlewares
-app.use(morgan('dev'));
-
-// Rutas
-app.get('/', (req, res)=>{
-    res.send({Title:'Hello ADSI 023'})
-})
-
-// Configuraciones
+//configuraciones
 app.set("port", 4000);
-app.get("/", (req, res) => {
-  res.send({ Title: "Hello ADSI 023" });
-});
-// Se inicia el servidor
+
+//middlewares
+app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+//rutas
+app.use("/api/v1/users", require("./api/v1/routes/users.routes"));
+
+//se inicia el servidor
 app.listen(app.get("port"), () => {
-  console.log(`Server Running on port ${app.get("port")}`);
+  console.log(`server running on port ${app.get("port")}`);
 });
